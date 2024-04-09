@@ -34,15 +34,11 @@ library(JASPAR2024)
 library(universalmotif)
 ```
 
-Libraries not loading?
-We use `renv` to manage our packages in this project, so you can run `renv::restore()` in the console to set up the package environment from the renv.lock file.
-Note that `renv` is a nice way of making sure that you're using no just the right packages, but the right versions of those packages.
-Check out the renv docs [here](https://rstudio.github.io/renv/articles/renv.html) for more informations and guides.
+Libraries not loading? We use `renv` to manage our packages in this project, so you can run `renv::restore()` in the console to set up the package environment from the renv.lock file. Note that `renv` is a nice way of making sure that you're using no just the right packages, but the right versions of those packages. Check out the renv docs [here](https://rstudio.github.io/renv/articles/renv.html) for more informations and guides.
 
 ## A quick interlude - set up GitHub if needed
 
-When you try to push your changes RStudio will probably prompt you for your GitHub username and password.
-If that works and the push is successful when great, you can skip this chunck, but if you you can quickly set up Git and a PAT token to be able to push your changes.
+When you try to push your changes RStudio will probably prompt you for your GitHub username and password. If that works and the push is successful when great, you can skip this chunck, but if you you can quickly set up Git and a PAT token to be able to push your changes.
 
 ```{r}
 #| eval: false
@@ -62,9 +58,7 @@ Copy your token to your clipboard and then run:
 gitcreds::gitcreds_set()
 ```
 
-And paste the token in.
-You should be able to make pushes to your forked repo now (hopefully!)
-Refer to the excellent [Happy Git with R](https://happygitwithr.com/https-pat) guide if needed or for more info.
+And paste the token in. You should be able to make pushes to your forked repo now (hopefully!) Refer to the excellent [Happy Git with R](https://happygitwithr.com/https-pat) guide if needed or for more info.
 
 ## Load the RNA-Seq data
 
@@ -73,11 +67,10 @@ We already pre-processed the RNA-Seq and ATAC-Seq data using nf-core/fetchngs, n
 \
 Now we'll load the RNA-Seq data to start to get an impression of what might be special about the brain endothelial cells and see if we can re-produce some of the results from the manuscript.
 
-Do you know the difference between absolute and relative file paths..?
-Maybe have a look at the `here` package docs [here](https://here.r-lib.org/)!
+Do you know the difference between absolute and relative file paths..? Maybe have a look at the `here` package docs [here](https://here.r-lib.org/)!
 
 ```{r}
-tx2genefile = '/home/rookie/data/count_tables/tx2gene.tsv'
+tx2genefile = '~/Sophie-EBI-Omics/data/count_tables/tx2gene.tsv'
 tx2gene = read.delim(tx2genefile, header=FALSE)[, 1:3]
 
 directory_path <- here::here("data/count_tables")
